@@ -1,17 +1,25 @@
 # Base64-image-mime
 
 ## A small utility to get mimetype from base64-encoded images
-
-### Currently support:
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+### Currently support mime-type:
 - image/png
 - image/gif
 - image/jpeg
 - image/svg+xml
 - image/webp
 
-Works for with prefix & without prefix base64 encoded image
 
+### Installation
+```
+npm install base64-image-mime
+
+// or with yarn
+
+yarn add base64-image-mime
+```
 ### Usage
+Can detect both with prefix & without prefix base64 encoded image
 ```js
 const { getImageMime } = require('base64-image-mime')
 

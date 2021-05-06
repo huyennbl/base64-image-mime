@@ -1,6 +1,6 @@
 {
   "name": "base64-image-mime",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Get mimetype from base64-encoded images",
   "main": "index.js",
   "scripts": {

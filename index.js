@@ -1,5 +1,4 @@
 const atob = require('atob')
-const jpegTypes = ["jpg", "jpeg", "jfif", "pjpeg", "pjp"]
 const mimeTypes = {
   png: 'image/png',
   gif: 'image/gif',
@@ -12,7 +11,7 @@ const mimeTypes = {
   jfif: 'image/jpeg'
 }
 
-function getImageMime(base64Encoded) {
+function getImageMime (base64Encoded) {
   if (base64Encoded.startsWith('data:')) {
     const found = base64Encoded.match(/(?<=data:)\S*(?=;base64)/g)
     return found && found[0]
@@ -20,6 +19,8 @@ function getImageMime(base64Encoded) {
     const prefix = atob(base64Encoded.slice(0, 60))
     const found = prefix.match(/(webp)|(png)|(gif)|(svg)|(jpg)|(jpeg)|(pjpeg)|(pjp)|(jfif)/gi)
     if (!found) {
+      const hex = Buffer.from(base64Encoded, 'base64').toString('hex')
+      if (hex.startsWith('ffd8ff')) return mimeTypes.jpeg
       return null
     } else {
       const type = found[0].toLocaleLowerCase()
@@ -27,7 +28,6 @@ function getImageMime(base64Encoded) {
     }
   }
 }
-
 
 module.exports = {
   getImageMime: getImageMime
