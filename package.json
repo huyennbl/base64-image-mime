@@ -1,0 +1,34 @@
+{
+  "name": "base64-image-mime",
+  "version": "1.0.0",
+  "description": "Get mimetype from base64-encoded images",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huyennbl/base64-image-mime.git"
+  },
+  "keywords": [
+    "mime",
+    "base64",
+    "base64-image",
+    "base64-encoded",
+    "image",
+    "mime-type",
+    "mimetype"
+  ],
+  "author": "huyennbl",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/huyennbl/base64-image-mime/issues"
+  },
+  "homepage": "https://github.com/huyennbl/base64-image-mime#readme",
+  "dependencies": {
+    "atob": "^2.1.2"
+  },
+  "devDependencies": {
+    "jest": "^26.6.3"
+  }
+}
