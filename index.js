@@ -1,4 +1,5 @@
 const atob = require('atob')
+const Buffer = require('buffer/').Buffer
 const mimeTypes = {
   png: 'image/png',
   gif: 'image/gif',
@@ -11,10 +12,10 @@ const mimeTypes = {
   jfif: 'image/jpeg'
 }
 
-function getImageMime (base64Encoded) {
+function getImageMime(base64Encoded) {
   if (base64Encoded.startsWith('data:')) {
-    const found = base64Encoded.match(/(?<=data:)\S*(?=;base64)/g)
-    return found && found[0]
+    const found = base64Encoded.match(/data:\S*;base64/g)
+    return found && found[0].slice('data:'.length, ';base64'.length * -1)
   } else {
     const prefix = atob(base64Encoded.slice(0, 60))
     const found = prefix.match(/(webp)|(png)|(gif)|(svg)|(jpg)|(jpeg)|(pjpeg)|(pjp)|(jfif)/gi)
